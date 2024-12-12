@@ -1,0 +1,42 @@
+/*Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.*/
+
+#include <stdio.h>
+
+int twosum(int* nums,int numsize,int target,int* xi,int* xj);
+int twosum(int* nums,int numsize,int target,int* xi,int* xj){
+
+    for (int i=0;i<numsize;i++){
+        for (int j=i+1;j<numsize;j++){
+            if (nums[j]==(target-nums[i])){
+                *xi=i;
+                *xj=j;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+int main(){
+    int xi,xj;
+    int numsize; //size of array
+    int target;
+    int nums[numsize];
+    printf("numsize:\n");
+    scanf("%d",&numsize);
+    for (int i=0;i<numsize;i++){
+        printf("nums[%d]:\n",i);
+        scanf("%d",&nums[i]);
+    }
+    printf("enter target:\n");
+    scanf("%d",&target);
+
+    if (twosum(nums,numsize,target,&xi,&xj)){
+        printf("Indexes: [%d, %d]\n", xi, xj);
+    }
+    return 0;
+}
