@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <limits.h>
+using namespace std;
+int main() {
+	int x;
+	int y;
+	cin >> x >> y;
+	int prod = x * y;
+	int sum = x + y;
+	int sub;
+	if (x > y) {
+		sub = x - y;
+	}
+	else {
+		sub = y - x;
+	}
+	if (sub > sum || sub > prod) {
+		cout << sub;
+	}
+	else if (prod > sum || prod > sub) {
+			cout << prod;
+	}
+	else if (sum > sub || sum > prod) {
+		cout << sum;
+	}
+
+}
