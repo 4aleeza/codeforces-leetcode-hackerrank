@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <limits.h>
+using namespace std;
+int main() {
+	int rem; //remaining keyboards
+	int smallest = INT_MAX;
+	int largest = INT_MIN;
+	cin >> rem;
+	int* x = new int[rem]; //names of keyboards
+	for (int i = 0;i < rem;i++) {
+		cin >> x[i];
+	}
+	for (int i = 0;i < rem;i++) {
+		if (x[i] < smallest) {
+			smallest = x[i];
+		}
+		if (x[i] > largest) {
+			largest = x[i];
+		}
+	}
+	int y = largest - smallest;
+	int stolen = (y+1) - rem;
+	cout << stolen;
+}
