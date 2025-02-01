@@ -1,0 +1,44 @@
+/*At the end of 2nd semester, Munnazzar just needed an A in Differential Equations to get Rectors, 
+so he went on hurriedly to Sir Mairaj's office to try to get his marks increased. Sir Mairaj agreed, 
+but only on one condition. Munnazzar must create a program which finds out the roots of the equation:
+Ax2 + Bx + C = 0.
+After finding out the roots, Munnazzar program must print them in ascending order 
+to receive bonus weightage to his grade.
+*/
+#include <iostream>
+#include <math.h>
+using namespace std;
+float neg(float A, float B, float C, float sqrB) {
+	float eq = (sqrB - 4 * A * C);
+	if (eq < 0) {
+		cout << "-1";
+	}
+	else {
+		float underroot = sqrt(eq);
+		float final = (-B - underroot)/(2*A);
+		return final;
+	}
+}
+float pos(float A, float B, float C, float sqrB) {
+	float eq = (sqrB - 4 * A * C);
+	if (eq < 0) {
+		cout << "-1";
+	}
+	else {
+		float underroot = sqrt(eq);
+		float final = (-B + underroot) / (2 * A);
+		return final;
+	}
+}
+int main() {
+	float A, B, C;
+	// -b +- underroot(b2-4ac)/2a
+	cin >> A >> B >> C;
+	float sqrB = pow(B, 2);
+	float root1 = neg(A, B, C, sqrB);
+	float root2 = pos(A, B, C, sqrB);
+	if (root1 > root2) {
+		cout << root2 << endl << root1;
+	}
+	else cout << root1 << endl << root2;
+}
