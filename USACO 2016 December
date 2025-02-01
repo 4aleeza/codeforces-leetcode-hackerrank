@@ -1,0 +1,32 @@
+/*As part of an adventurous road trip, Abdul Ahad and Abdul Rafay are traveling across the country, 
+exploring various cities and discovering hidden connections between them. 
+While marking their route on a giant map, they notice an interesting pattern: 
+some cities seem to share a unique link based on their names and state codes.
+For example, they realize that driving from Flint, MI to Miami, 
+FL feels almost poetic— the first two letters of "Flint" form the state code ("FL") for Miami, 
+and the first two letters of "Miami" form the state code ("MI") for Flint.
+They define two cities as a "special pair" if they follow this pattern and belong to different states. 
+Now, as they cruise along highways and scenic routes, 
+they start wondering—how many such special pairs of cities exist? 
+Help them solve this intriguing travel puzzle!*/
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+	int flag = 0;
+	int n; 
+	cin >> n;
+	string* state = new string[n];
+	string* code = new string[n];
+	for (int i = 0;i < n;i++) {
+		cin >> state[i] >> code[i];
+	}
+	for (int i = 0;i < n;i++) {
+		for (int j = i + 1;j < n;j++) {
+			if (code[i] == state[j].substr(0, 2)) {
+				flag++;
+			}
+		}
+	}
+	cout << flag;
+}
