@@ -1,0 +1,33 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+int main() {
+	int n;
+	int sumc, sumv;
+	//int buffer1 = INT_MIN;
+	int maxdiff = INT_MIN;
+	int x, y;
+	cin >> n;
+	if (n < 2) {
+		cout << 0;
+		return 0;
+	}
+	int* diff = new int[n];
+	int* v = new int[n];
+	int* c = new int[n];
+
+	for (int i = 0;i < n;i++) {
+		cin >> v[i];
+	}
+	for (int i = 0;i < n;i++) {
+		cin >> c[i];
+	}
+	for (int i = 0;i < n;i++) {
+		for (int j = i + 1;j < n;j++) {
+			if ((v[i] + v[j]) - (c[i] + c[j]) > maxdiff) {
+				maxdiff = ((v[i] + v[j]) - (c[i] + c[j]));
+			}
+		}
+	}
+	cout << maxdiff;
+}
